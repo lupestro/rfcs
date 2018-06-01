@@ -55,7 +55,7 @@ The recursive  `_copy` method also has an assertion that will fail if it is call
 
 During the deprecation period, the `Ember.copy` method and the `NativeArray.copy` methods will carry a deprecation warning. We will remove `Copyable` from `NativeArray` and change  `Ember.copy` to consistently use the common array copy mechanism to copy arrays rather than sometimes delegating. We will move the assertion that an `EmberObject` must be  `Copyable` to the clause that handles non-array objects.
 
-We need a way to deprecate use of the `Copyable` mixin. If the penalty for adding code in such a common place isn't too high, we could have `core_object.extend()`  check for `Copyable` and deprecate accordingly. We will also supply a new eslint warning that flags the deprecated use of `Copyable`. (This may be our first eslint check for deprecations. We may want to consider adding others at the same time.)
+We need a way to deprecate use of the `Copyable` mixin. If the penalty for adding code in such a common place isn't too high, we could have `core_object.extend()`  check for `Copyable` and deprecate accordingly. 
 
 Those using the add-on will need to mechanically adjust any uses of  `myArray.copy(deep)` to  `copy(myArray, deep)` in order to avoid the deprecation message.
 
